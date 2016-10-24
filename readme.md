@@ -1,6 +1,13 @@
 # FormBuilder : a PHP class that helps you building forms
 
-How to use it ? Just see these examples :
+## How to install it
+
+You can install this package quickly with composer : `composer require ludovicm67/php-formbuilder`
+
+
+## How to use it ?
+
+Just see these examples :
 
 ```php
 <?php
