@@ -72,6 +72,7 @@ use ludovicm67\FormBuilder;
          <?= FormBuilder::selectDay('example2-dayselect', ['class' => 'form-control']); ?>
          <?= FormBuilder::selectMonth('example2-monthselect', ['class' => 'form-control']); ?>
          <?= FormBuilder::selectMonthName('example2-monthnameselect', ['class' => 'form-control']); ?>
+         <?= FormBuilder::selectMonthNameFR('example2-monthnameselect-french', ['class' => 'form-control']); ?>
          <?= FormBuilder::selectYear('example2-yearselect', ['class' => 'form-control']); ?>
          <?= FormBuilder::textarea('example2-textaera', ['class' => 'form-control']); ?>
          <?= FormBuilder::submit('Submit this beautiful form !', ['class' => 'btn btn-primary']); ?>

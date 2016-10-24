@@ -262,32 +262,65 @@ class FormBuilder {
     /**
      * Static function for generating a select field, to select a month name
      *
-     * @param   string  $name       Name of the field (default: empty)
-     * @param   array   $attrs      Array of additional attribultes (ex: class, ...)
+     * @param   string      $name     Name of the field (default: empty)
+     * @param   array       $attrs    Array of additional attribultes (ex: class, ...)
+     * @param   null|array  $months   Array of custom wording
      *
      * @return  string  $select Return the select field
      */
-    static function selectMonthName($name = '', $attrs = []) {
+    static function selectMonthName($name = '', $attrs = [], $months = null) {
 
-        $months = [
-            '01' => 'January',
-            '02' => 'February',
-            '03' => 'March',
-            '04' => 'April',
-            '05' => 'May',
-            '06' => 'June',
-            '07' => 'July',
-            '08' => 'August',
-            '09' => 'September',
-            '10' => 'October',
-            '11' => 'November',
-            '12' => 'December'
-        ];
+        if($months == null || !is_array($months) || count($months) != 12) {
+            $months = [
+                '01' => 'January',
+                '02' => 'February',
+                '03' => 'March',
+                '04' => 'April',
+                '05' => 'May',
+                '06' => 'June',
+                '07' => 'July',
+                '08' => 'August',
+                '09' => 'September',
+                '10' => 'October',
+                '11' => 'November',
+                '12' => 'December'
+            ];
+        }
 
         /* Autoselect current month if empty */
         if(!isset($_POST["$name"])) $months[sprintf('%02d', date('m'))] .= ' --selected';
 
         return self::select($name, $months, $attrs);
+
+    }
+
+
+    /**
+     * Static function for generating a select field, to select a month name (FR)
+     *
+     * @param   string      $name     Name of the field (default: empty)
+     * @param   array       $attrs    Array of additional attribultes (ex: class, ...)
+     *
+     * @return  string  $select Return the select field
+     */
+    static function selectMonthNameFR($name = '', $attrs = []) {
+
+        $months = [
+            '01' => 'janvier',
+            '02' => 'février',
+            '03' => 'mars',
+            '04' => 'avril',
+            '05' => 'mai',
+            '06' => 'juin',
+            '07' => 'juillet',
+            '08' => 'août',
+            '09' => 'septembre',
+            '10' => 'octobre',
+            '11' => 'novembre',
+            '12' => 'décembre'
+        ];
+
+        return self::selectMonthName($name, $attrs, $months);
 
     }
 
