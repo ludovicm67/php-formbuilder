@@ -175,6 +175,12 @@ class FormBuilder {
         $select  = '<select';
         $select .= ($name) ? ' name="' . self::cleanString($name) . '"' : '';
 
+        $defaultValue = null;
+        if(isset($attrs['value'])) {
+            $defaultValue = $attrs['value'];
+            unset($attrs['value']);
+        }
+
         // Add all additional attributes defined in $attrs
         foreach ($attrs as $attrName => $attrValue) {
             $select .= ' ' . $attrName . '="' . self::cleanString($attrValue) . '"';
@@ -198,14 +204,14 @@ class FormBuilder {
             $optionSelectedStrLen = strlen($optionSelected);
             if(substr_compare($optionTitle, $optionSelected, -$optionSelectedStrLen, $optionSelectedStrLen) == 0) {
                 $optionTitle = substr($optionTitle, 0, -$optionSelectedStrLen);
-                $optionArgs .= ' selected="selected"';
+                if(!$defaultValue) $optionArgs .= ' selected="selected"';
             }
 
             /* If $options is not an associative array, the value will have the title value */
             if(!$isAssoc) $optionValue = $optionTitle;
 
             /* Autoselect option */
-            if(isset($_POST["$name"]) && $_POST["$name"] === "$optionValue") $optionArgs .= ' selected="selected"';
+            if(($defaultValue && $defaultValue === "$optionValue") || (!$defaultValue && isset($_POST["$name"]) && $_POST["$name"] === "$optionValue")) $optionArgs .= ' selected="selected"';
 
             $select .= '<option value="' . self::cleanString($optionValue) . '"' . $optionArgs . '>' . $optionTitle . "</option>\n";
 
