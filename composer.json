@@ -1,0 +1,14 @@
+{
+    "name": "ludovicm67/php-formbuilder",
+    "description": "A PHP class that helps you building forms",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "ludovicm67",
+            "email": "ludovicmuller1@gmail.com"
+        }
+    ],
+    "require": {
+        "php" : ">=5.3.0"
+    }
+}
