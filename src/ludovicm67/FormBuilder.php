@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     FormBuilder class
- * @version     1.0.0
+ * @version     1.0.2
  * @author      ludovicm67 <ludovicmuller1@gmail.com>
  * @license     This software is licensed under the MIT license: http://opensource.org/licenses/MIT
  *
