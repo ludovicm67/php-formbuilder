@@ -67,3 +67,11 @@ echo FormBuilder::select("mySelect2", [
 ```
 
 And some more in the `example` folder :wink:
+
+
+## Register this component in Laravel
+After doing a composer require command, you will just have to add register the form builder by adding `'FormBuilder' => ludovicm67\FormBuilder::class,` in your aliases, in the `config/app.php` file.
+
+## Contribute
+You find a bug ? You want to add some stuff ? Just open an issue !
+ 

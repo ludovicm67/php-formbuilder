@@ -5,7 +5,8 @@
     "authors": [
         {
             "name": "ludovicm67",
-            "email": "ludovicmuller1@gmail.com"
+            "homepage": "https://www.ludovic-muller.fr/",
+            "role": "Developer"
         }
     ],
     "require": {
