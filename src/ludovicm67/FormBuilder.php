@@ -23,7 +23,7 @@ class FormBuilder {
      *
      * @return  string          String cleaned
      */
-    static function cleanString($str) {
+    static function cleanString(string $str) {
 
         return stripslashes(trim(htmlspecialchars(addslashes($str))));
 
@@ -39,7 +39,7 @@ class FormBuilder {
      *
      * @return  string  $input  Return the input field
      */
-    static function input($type = 'text', $name = '', $attrs = []) {
+    static function input(string $type = 'text', string $name = '', array $attrs = []) {
 
         $input = '<input type="' . $type . '"';
         $input .= ($name) ? ' name="' . self::cleanString($name) . '"' : '';
@@ -72,7 +72,7 @@ class FormBuilder {
      *
      * @return  string  $input  Return the input[type=hidden] field
      */
-    static function hidden($name = '', $value = '') {
+    static function hidden(string $name = '', string $value = '') {
 
         $attrs = [];
         $attrs['value'] = $value;
@@ -89,7 +89,7 @@ class FormBuilder {
      *
      * @return  string  $input  Return the input[type=submit] field
      */
-    static function submit($value = 'Submit', $attrs = []) {
+    static function submit(string $value = 'Submit', array $attrs = []) {
 
         $attrs['value'] = $value;
         return self::input($type = 'submit', '', $attrs);
@@ -105,7 +105,7 @@ class FormBuilder {
      *
      * @return  string  $input  Return the text input field
      */
-    static function text($name = '', $attrs = []) {
+    static function text(string $name = '', array $attrs = []) {
 
         return self::input('text', $name, $attrs);
 
@@ -120,7 +120,7 @@ class FormBuilder {
      *
      * @return  string  $input  Return the password input field
      */
-    static function password($name = '', $attrs = []) {
+    static function password(string $name = '', array $attrs = []) {
 
         return self::input('password', $name, $attrs);
 
@@ -135,7 +135,7 @@ class FormBuilder {
      *
      * @return  string  $input  Return the email input field
      */
-    static function email($name = '', $attrs = []) {
+    static function email(string $name = '', array $attrs = []) {
 
         return self::input('email', $name, $attrs);
 
@@ -150,7 +150,7 @@ class FormBuilder {
      *
      * @return  string  $input  Return the checkbox field
      */
-    static function checkbox($name = '', $attrs = []) {
+    static function checkbox(string $name = '', array $attrs = []) {
 
         return self::input('checkbox', $name, $attrs);
 
@@ -166,7 +166,7 @@ class FormBuilder {
      *
      * @return  string  $select Return the select field
      */
-    static function select($name = '', $options = [], $attrs = []) {
+    static function select(string $name = '', array $options = [], array $attrs = []) {
 
         // Are the options given by an associative array or not?
         $isAssoc = (count(array_filter(array_keys($options), 'is_string')) > 0) ? true : false;
@@ -230,7 +230,7 @@ class FormBuilder {
      *
      * @return  string  $select Return the select field
      */
-    static function selectDay($name = '', $attrs = []) {
+    static function selectDay(string $name = '', array $attrs = []) {
 
         $days = [];
         for ($i=1; $i <= 31; $i++) $days[] = sprintf('%02d', $i);
@@ -251,7 +251,7 @@ class FormBuilder {
      *
      * @return  string  $select Return the select field
      */
-    static function selectMonth($name = '', $attrs = []) {
+    static function selectMonth(string $name = '', array $attrs = []) {
 
         $months = [];
         for ($i=1; $i <= 12; $i++) $months[] = sprintf('%02d', $i);
@@ -273,7 +273,7 @@ class FormBuilder {
      *
      * @return  string  $select Return the select field
      */
-    static function selectMonthName($name = '', $attrs = [], $months = null) {
+    static function selectMonthName(string $name = '', array $attrs = [], null|array $months = null) {
 
         if($months == null || !is_array($months) || count($months) != 12) {
             $months = [
@@ -308,7 +308,7 @@ class FormBuilder {
      *
      * @return  string  $select Return the select field
      */
-    static function selectMonthNameFR($name = '', $attrs = []) {
+    static function selectMonthNameFR(string $name = '', array $attrs = []) {
 
         $months = [
             '01' => 'janvier',
@@ -338,7 +338,7 @@ class FormBuilder {
      *
      * @return  string  $select Return the select field
      */
-    static function selectYear($name = '', $attrs = []) {
+    static function selectYear(string $name = '', array $attrs = []) {
 
         $years = [];
         for ($i=date('Y')-150; $i <= date('Y'); $i++) $years[] = sprintf('%04d', $i);
@@ -359,7 +359,7 @@ class FormBuilder {
      *
      * @return  string  $textarea   Return the textarea field
      */
-    static function textarea($name = '', $attrs = []) {
+    static function textarea(string $name = '', array $attrs = []) {
 
         $textarea = '<textarea';
         $textarea .= ($name) ? ' name="' . self::cleanString($name) . '"' : '';
