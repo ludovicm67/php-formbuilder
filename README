@@ -1,13 +1,12 @@
-# FormBuilder : a PHP class that helps you building forms
+# FormBuilder: a PHP class that helps you building forms
 
 ## How to install it
 
-You can install this package quickly with composer : `composer require ludovicm67/php-formbuilder`
+You can install this package quickly with composer: `composer require ludovicm67/php-formbuilder`
 
+## How to use it?
 
-## How to use it ?
-
-Just see these examples :
+Just see these examples:
 
 ```php
 <?php
@@ -68,10 +67,10 @@ echo FormBuilder::select("mySelect2", [
 
 And some more in the `example` folder :wink:
 
-
 ## Register this component in Laravel
+
 After doing a composer require command, you will just have to add register the form builder by adding `'FormBuilder' => ludovicm67\FormBuilder::class,` in your aliases, in the `config/app.php` file.
 
 ## Contribute
-You find a bug ? You want to add some stuff ? Just open an issue !
- 
+
+You find a bug? You want to add some stuff? Just open an issue!
