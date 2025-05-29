@@ -2,6 +2,7 @@
     "name": "ludovicm67/php-formbuilder",
     "description": "A PHP class that helps you building forms",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Ludovic Muller",
